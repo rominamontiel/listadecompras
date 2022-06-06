@@ -1,0 +1,112 @@
+.home-component {
+  position: relative;
+
+  .nav-top {
+    background-color: white;
+    box-shadow: var(--shadow-1);
+    height: 70px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 4rem;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+
+    h1 {
+      font-size: 26px;
+      color: var(--grey-1);
+      font-weight: 600;
+      font-family: var(--title-font);
+      margin: 0;
+    }
+
+    .right {
+      display: flex;
+      .btn-gral {
+        margin-right: 2rem;
+        position: relative;
+
+        &::after {
+          content: "";
+          height: 100%;
+          width: 1px;
+          background-color: var(--grey-2);
+          right: -2rem;
+          position: absolute;
+          top: 0;
+        }
+      }
+
+      .profile {
+        border-radius: 50%;
+        background-color: rgb(173, 173, 173);
+        width: 44px;
+        height: 44px;
+        margin-left: 2rem;
+        margin-right: 1.25rem;
+      }
+    }
+  }
+
+  .content-gral {
+    width: 100%;
+    padding-top: 70px;
+    min-height: calc(100vh - 70px);
+
+    .container-cards {
+      min-height: calc(100vh - 70px);
+      width: calc(100% - 30%);
+      padding: 4rem 2rem 4rem 4rem;
+    }
+
+    .container-list {
+      position: fixed;
+      height: calc(100vh - 70px - 3rem);
+      width: calc(30% - 2.5rem);
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background-color: rgb(255, 255, 255);
+      box-shadow: var(--shadow-1);
+      border-radius: 10px;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  :host {
+    width: 100vw;
+    overflow: scroll;
+    display: block;
+  }
+
+  .home-component {
+    width: 200vw;
+
+    .nav-top {
+      padding: 1rem;
+
+      h1 {
+        font-size: 1rem;
+      }
+    }
+
+    .content-gral {
+      display: flex;
+      padding-left: 1rem;
+      padding-right: 1rem;
+
+      .container-cards {
+        width: 100vw;
+        padding: 1.5rem 0rem;
+      }
+
+      .container-list {
+        position: initial;
+        width: 97vw;
+        margin-top: 2rem;
+      }
+    }
+  }
+}

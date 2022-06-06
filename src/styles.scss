@@ -1,1 +1,225 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"); //font-family: 'Lato', sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"); // font-family: 'Quicksand', sans-serif;
+
+// --------------------------- VARIABLES ---------------------------
+
+:root {
+  // Fuentes
+  --gral-font: "Lato", sans-serif;
+  --title-font: "Quicksand", sans-serif;
+
+  //Colores
+  --green-1: #97c89f;
+  --green-2: #a1cea8;
+  --green-3: #add9b4;
+  --grey-1: #b2b8b3;
+  --grey-2: #e3e8e5;
+  --black-1: #363636;
+
+  --bg: #f7f8fa;
+  --bg-modal: rgba(68, 86, 71, 0.4);
+
+  --shadow-1: 0px 2px 14px #e7efee;
+  --shadow-2: 2px 2px 11px rgba(69, 123, 78, 0.3);
+  --shadow-3: 0px 4px 7px rgba(3, 104, 19, 0.07);
+  --shadow-4: 0px 5px 11px rgba(10, 57, 17, 0.14);
+
+  --border-1: 1px solid rgba(0, 0, 0, 0.06);
+  --border-1: 1px solid #e3e8e5;
+
+  --transition-3: 0.3s ease-in-out all;
+  --transition-2: 0.2s ease-in-out all;
+  --transition-1: 0.1s ease-in-out all;
+
+  --font-11: 11px;
+  --font-13: 13px;
+  --font-14: 14px;
+  --font-16: 16px;
+  --font-18: 18px;
+  --font-20: 20px;
+  --font-27: 27px;
+}
+
+// --------------------------- MIXINS ---------------------------
+
+@mixin display-flex {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin display-center {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin border-sizing() {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+@mixin user-select-none() {
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* supported by Chrome and Opera */
+}
+
+// --------------------------- ANIMACIONES ---------------------------
+
+@keyframes show {
+  100% {
+    opacity: 1;
+  }
+} // animation: show .3s ease-in-out forwards;
+
+
+@keyframes showUp {
+  0% {
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} // animation: showUp .2s ease-in-out forwards;
+
+// --------------------------- ESTILOS GRALES ---------------------------
+
+* {
+  @include border-sizing();
+
+  &:focus {
+    outline: none;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #e2e4e7;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #c6cad1;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  width: 100%;
+}
+
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  font-family: var(--gral-font);
+  background-color: var(--bg);
+}
+
+img {
+  @include user-select-none();
+  -webkit-user-drag: none;
+}
+
+p {
+  margin: 0;
+}
+
+.title {
+  font-weight: 700;
+  font-size: var(--font-27);
+  line-height: 64.52%;
+  letter-spacing: -0.025em;
+  color: #303030;
+  margin: 0 0 2.5rem 0;
+  font-family: var(--title-font);
+}
+
+.btn-gral {
+  text-decoration: none;
+  background-color: var(--green-2);
+  color: white;
+  font-weight: 600;
+  font-family: var(--title-font);
+  border-radius: 10px;
+  padding: 13px 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  height: max-content;
+  font-size: var(--font-14);
+  box-shadow: var(--shadow-4);
+  user-select: none;
+  cursor: pointer;
+  transition: var(--transition-1);
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &.fw {
+    width: 100%;
+    font-size: var(--font-16);
+
+    img {
+      margin-left: 0.5rem;
+    }
+  }
+}
+
+.add-btn {
+  width: 40px;
+  height: 40px;
+  background-color: var(--green-2);
+  background-image: url("assets/img/add.svg");
+  background-position: center;
+  background-size: 20px;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  box-shadow: var(--shadow-2);
+  cursor: pointer;
+  transition: var(--transition-1);
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+input[type="text"] {
+  border: 2px solid #dfe5e9;
+  border-radius: 18px;
+}
+
+@media (max-width: 1024px) {
+  * {
+    cursor: default !important;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+<div class="home-component">
+  <div class="nav-top">
+    <h1><img src="assets/img/carrito.svg" alt="" /> Compras</h1>
+    <div class="right">
+      <div class="btn-gral">Crear producto +</div>
+      <div class="profile">
+        <div class="img"></div>
+      </div>
+    </div>
+  </div>
+  <div class="content-gral">
+    <div class="container-cards">
+      <!-- <app-featured-products></app-featured-products>    LO SACO HASTA TENER LA FUNCIONALIDAD     -->
+      <app-grid-products
+        [listProducts]="this.listProducts"
+        (selectedItem)="onSelectedItem($event)"
+      ></app-grid-products>
+    </div>
+    <div class="container-list">
+      <app-list-products [itemReceived]="this.itemToAdd"></app-list-products>
+    </div>
+  </div>
+</div>

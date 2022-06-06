@@ -1,0 +1,32 @@
+<div class="list-products-component">
+  <h2 class="title">Lista de compras <img *ngIf="isEmpty == false" (click)="onDeleteList()" title="Eliminar lista" src="assets/img/trash.svg" alt=""></h2>
+  <div class="list-container">
+    <ng-container *ngIf="isEmpty == false">
+      <div *ngFor="let item of listItems; let i = index">
+        <div class="item" [ngClass]="{ 'checked-item': item.check }" *ngIf="item.cant > 0">
+          <div class="left">
+            <div class="img">
+              <img
+                src="{{item.img}}"
+                alt=""
+              />
+            </div>
+            <h4>{{item.name}}</h4>
+          </div>
+          <div class="right">
+            <div class="count">
+              <div class="btn" (click)="onCountItem('-', i)">-</div>
+              <div class="num">{{item.cant}}</div>
+              <div class="btn" (click)="onCountItem('+', i)">+</div>
+            </div>
+            <div class="check" (click)="listItems[i].check = !listItems[i].check"></div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <div class="empty" *ngIf="isEmpty == true">
+      <img src="assets/img/vacio.png" alt="" />
+    </div>
+  </div>
+  <div class="btn-gral fw" (click)="onBought()">Marcar todo como comprado <img src="assets/img/check.svg" alt=""></div>
+</div>

@@ -1,0 +1,183 @@
+.list-products-component {
+  padding: 2.5rem 2rem 1.5rem 2rem;
+  height: calc(100vh - 70px - 3rem);
+  position: relative;
+
+  .title {
+    font-size: 22px;
+    border-bottom: var(--border-1);
+    padding-bottom: 1.3rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+
+    img {
+      height: 23px;
+      opacity: 0.15;
+      cursor: pointer;
+      transition: var(--transition-1);
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  .list-container {
+    height: 91%;
+    height: 84%;
+    overflow-y: scroll;
+
+    .item {
+      display: flex;
+      justify-content: space-between;
+      height: 65px;
+      padding: 0;
+      border-bottom: var(--border-1);
+      transition: var(--transition-2);
+      opacity: 0;
+      animation: showUp 0.2s ease-in-out forwards;
+
+      .left {
+        display: flex;
+        align-items: center;
+        height: 100%;
+
+        .img {
+          width: 50px;
+          height: 50px;
+          margin-right: 10px;
+          border-radius: 7px;
+          overflow: hidden;
+          border: var(--border-1);
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+
+        h4 {
+          margin: 0;
+          color: var(--black-1);
+          font-size: var(--font-16);
+          font-family: var(--title-font);
+        }
+      }
+
+      .right {
+        display: flex;
+        align-items: center;
+
+        .count {
+          display: flex;
+          align-items: center;
+          transition: var(--transition-2);
+
+          .num {
+            font-family: var(--title-font);
+            font-weight: 500;
+            color: var(--green-3);
+            width: 29px;
+            height: 29px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--font-18);
+          }
+
+          .btn {
+            width: 29px;
+            height: 29px;
+            color: white;
+            font-family: var(--title-font);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--font-18);
+            background-color: var(--green-3);
+            border-radius: 3px;
+            user-select: none;
+            cursor: pointer;
+          }
+        }
+
+        .check {
+          background: #ffffff;
+          border: 1px solid rgba(0, 0, 0, 0.06);
+          box-shadow: 0px 4px 7px rgba(3, 104, 19, 0.07);
+          border-radius: 5px;
+          width: 29px;
+          height: 29px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-left: 1.5rem;
+          cursor: pointer;
+          transition: var(--transition-1);
+
+          &:hover {
+            background-color: #eee;
+          }
+        }
+      }
+
+      &.checked-item {
+        background-color: #f3f3f3;
+        padding: 0 8px;
+        border-radius: 5px;
+        transition: var(--transition-2);
+
+        .left {
+          opacity: 0.25;
+
+          h4 {
+            text-decoration: line-through;
+          }
+        }
+
+        .right {
+          .count {
+            opacity: 0;
+          }
+          .check {
+            background-color: var(--green-2);
+            background-image: url("/assets/img/check.svg");
+            background-position: center;
+            background-size: 20px;
+            background-repeat: no-repeat;
+          }
+        }
+      }
+    }
+
+    .empty {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+      opacity: 0;
+      animation: showUp 0.2s ease-in-out forwards;
+
+      img {
+        width: 60%;
+      }
+    }
+  }
+
+  .btn-gral.fw {
+    position: absolute;
+    bottom: 1rem;
+    left: 2rem;
+    width: calc(100% - 4rem);
+  }
+}
+
+@media (max-width: 992px) {
+  :host {
+    // padding-top: 1rem;
+  }
+}

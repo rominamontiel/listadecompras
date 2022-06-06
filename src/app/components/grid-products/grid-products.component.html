@@ -1,0 +1,29 @@
+<div class="grid-products-component">
+  <h2 class="title">
+    Todos los productos
+    <div class="categories">
+      <div
+        class="category"
+        *ngFor="let category of categoriesList"
+        (click)="onSelectedCategory(category)"
+        [ngClass]="{'active': categorySelected == category}"
+      >
+        <img
+          src="/assets/img/categorias/{{ category }}.png"
+          alt=""
+          title="{{ category }}"
+        />
+      </div>
+    </div>
+  </h2>
+  <div class="cards-content">
+    <div class="card" *ngFor="let item of listProductsCopy">
+      <div class="img">
+        <img src="{{ item.img }}" alt="" />
+      </div>
+      <h3>{{ item.name }}</h3>
+      <p>{{ item.category }}</p>
+      <div class="add-btn" (click)=" emitItem(item.name)"></div>
+    </div>
+  </div>
+</div>
