@@ -173,6 +173,31 @@ export class HomeComponent implements OnInit {
       img: 'https://www.casa-segal.com/wp-content/uploads/2019/03/azucar-kilo-ledesma-reposteria-mendoza-casa-segal-1.jpg',
       category: 'almacen',
     },
+    {
+      name: 'Toallitas',
+      img: 'https://riadigos.com.ar/wp-content/uploads/2020/03/toallas-femeninas-ladysoft-ultra-delgada-con-alas-x-16-unid.jpg',
+      category: 'aseo',
+    },
+    {
+      name: 'Carne picada',
+      img: 'http://d3ugyf2ht6aenh.cloudfront.net/stores/861/458/products/171-a400bc40f03f45919215696861011523-640-0.jpg',
+      category: 'congelados',
+    },
+    {
+      name: 'Patys',
+      img: 'https://www.paty.com.ar/assets/site/images/sections/products/packaging-mobile/paty72.jpg?v=0.13',
+      category: 'congelados',
+    },
+    {
+      name: 'Jabón',
+      img: 'https://ardiaprod.vteximg.com.br/arquivos/ids/215878-500-500/Jabon-en-Barra-Espadol-Dettol-Skincare-80-Gr-_1.jpg?v=637713711154670000',
+      category: 'aseo',
+    },
+    {
+      name: 'Mayonesa',
+      img: 'https://jumboargentina.vtexassets.com/arquivos/ids/685480/Aderezo-Mayonesa-Natura-475-Gr-1-9501.jpg?v=637786569809200000',
+      category: 'almacen',
+    },
   ];
 
   constructor() {}

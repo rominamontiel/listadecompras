@@ -74,12 +74,17 @@
           display: flex;
           align-items: center;
           transition: var(--transition-2);
+          background-color: white;
+          border: var(--border-2);
+          border-radius: 1rem;
+          overflow: hidden;
+          padding: 0 4px;
 
           .num {
             font-family: var(--title-font);
             font-weight: 500;
             color: var(--green-3);
-            width: 29px;
+            width: 20px;
             height: 29px;
             display: flex;
             align-items: center;
@@ -90,14 +95,15 @@
           .btn {
             width: 29px;
             height: 29px;
-            color: white;
+            // color: white;
+            // background-color: var(--green-3);
+            color: var(--grey-2);
             font-family: var(--title-font);
             font-weight: 700;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: var(--font-18);
-            background-color: var(--green-3);
             border-radius: 3px;
             user-select: none;
             cursor: pointer;

@@ -29,6 +29,7 @@ export class GridProductsComponent implements OnInit {
   onSelectedCategory(name: string) {
     if (this.categorySelected == name) {
       this.listProductsCopy = this.listProducts;
+      this.categorySelected = '';
     } else {
       this.listProductsCopy = [];
       this.categorySelected = name;
