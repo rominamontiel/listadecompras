@@ -8,26 +8,26 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ListProductsComponent implements OnInit {
   @Input() itemReceived: { name: string; img: string } | undefined;
-  array = [
-    { cant: 1, check: false },
-    { cant: 1, check: false },
-    { cant: 1, check: false },
-    { cant: 1, check: false },
-    { cant: 1, check: false },
-    { cant: 1, check: false },
-    { cant: 1, check: false },
-  ];
   listItems: { name: string; img: string; cant: number; check: boolean }[] = [];
   isEmpty = false;
 
   constructor() {}
 
   ngOnInit(): void {
-    if (this.listItems.length == 0) {
+    // al iniciar pregunto si en local hay algo, si no lo hay va imagen de vacio - si lo hay guardo la lista en this.listItems
+    if (localStorage.getItem('local') != '[]' && localStorage.getItem('local') != null) {
+      const listLocal = localStorage.getItem('local');
+
+      if (listLocal != null) { //JSON.parse tira error si lo que le mandas puede ser null
+        this.listItems = JSON.parse(listLocal);
+      }
+      
+    } else {
       this.isEmpty = true;
-    }
+    }    
   }
 
+  // Se ejecuta cada vez que se agrega un producto desde afuera
   ngOnChanges() {
     if (this.itemReceived) {
       const item = {
@@ -56,9 +56,12 @@ export class ListProductsComponent implements OnInit {
       }
 
       this.isEmpty = false;
+
+      this.storeLocally();
     }
   }
 
+  // Sumar o restar 1 producto
   onCountItem(type: string, i: number): void {
     this.isEmpty = false;
 
@@ -75,16 +78,34 @@ export class ListProductsComponent implements OnInit {
     if (this.listItems.length == 0) {
       this.isEmpty = true;
     }
+
+    this.storeLocally();
   }
 
-  onDeleteList(){
-    this.listItems = [];
-    this.isEmpty = true;    
-  };
+  // marcar un producto como comprado
+  onCheck(i:number){
+    this.listItems[i].check = !this.listItems[i].check;
+    this.storeLocally();
+  }
 
-  onBought(){
+  onDeleteList() {
+    this.listItems = [];
+    this.isEmpty = true;
+
+    this.storeLocally();
+  }
+
+  onBought() {
     // mandar la lista a la bd antes de limpiar
     this.listItems = [];
-    this.isEmpty = true;    
-  };
+    this.isEmpty = true;
+
+    this.storeLocally();
+  }
+
+  // Almaceno en local storage la lista
+  storeLocally() {
+    const item = this.listItems;
+    localStorage.setItem('local', JSON.stringify(item));
+  }
 }

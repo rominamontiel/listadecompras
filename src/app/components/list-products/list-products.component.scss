@@ -10,6 +10,7 @@
     margin-bottom: 2rem;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
     img {
       height: 23px;
@@ -182,8 +183,64 @@
   }
 }
 
-// @media (max-width: 992px) {
-//   :host {
-//     padding-top: 1rem;
-//   }
-// }
+@media (max-width: 992px) {
+  .list-products-component {
+    padding: 1.7rem 1rem 1rem 1rem;
+    height: 100%;
+
+    .title {
+      font-size: 1.1rem;
+      margin-bottom: 1.2rem;
+
+      img {
+        height: 1.2rem;
+      }
+    }
+
+    .list-container {
+      height: calc(100% - 7rem);
+
+      .item {
+        height: 50px;
+
+        .left {
+          .img {
+            width: 40px;
+            height: 40px;
+          }
+
+          h4 {
+            font-size: 0.8rem;
+          }
+        }
+
+        .right {
+          .check {
+            width: 24px;
+            height: 24px;
+            margin-left: 1rem;
+          }
+
+          .count {
+            padding: 0;
+
+            .btn {
+              width: 24px;
+              height: 24px;
+              font-size: 1rem;
+            }
+
+            .num {
+              font-size: 1rem;
+              height: 24px;
+            }
+          }
+        }
+      }
+    }
+
+    .btn-gral.fw {
+      height: 3rem;
+    }
+  }
+}

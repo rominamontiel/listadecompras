@@ -19,7 +19,7 @@
               <div class="num">{{item.cant}}</div>
               <div class="btn" (click)="onCountItem('+', i)">+</div>
             </div>
-            <div class="check" (click)="listItems[i].check = !listItems[i].check"></div>
+            <div class="check" (click)="onCheck(i)"></div>
           </div>
         </div>
       </div>

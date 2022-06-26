@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   itemToAdd: { name: string; img: string } | undefined;
+  activeMobile = false;
   listProducts = [
     {
       name: 'Ades manzana',
@@ -196,6 +197,21 @@ export class HomeComponent implements OnInit {
     {
       name: 'Mayonesa',
       img: 'https://jumboargentina.vtexassets.com/arquivos/ids/685480/Aderezo-Mayonesa-Natura-475-Gr-1-9501.jpg?v=637786569809200000',
+      category: 'almacen',
+    },
+    {
+      name: 'Pan Lactal',
+      img: 'https://productosfrontera.com.ar/wp-content/uploads/2020/02/PAN-LACTAL-BLANCO.jpg',
+      category: 'almacen',
+    },
+    {
+      name: 'Café',
+      img: 'https://d3ugyf2ht6aenh.cloudfront.net/stores/251/225/products/7705-f11-1b523c69212081d43815971875699458-1024-1024.jpg',
+      category: 'almacen',
+    },
+    {
+      name: 'Vainillas',
+      img: 'https://cdn.batitienda.com/baticloud/images/product_95328aa5e56145f9a705470f95b2877b_637245379538024003_0_l.png',
       category: 'almacen',
     },
   ];
